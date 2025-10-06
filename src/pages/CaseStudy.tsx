@@ -34,6 +34,24 @@ export default function CaseStudy() {
     );
   }
 
+  const longDescriptionParagraphs = (project.longDescription ?? "")
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  const [introParagraph, ...remainingParagraphs] = longDescriptionParagraphs;
+
+  const challenges = Array.isArray(project.challenges)
+    ? project.challenges
+    : [];
+
+  const solutionContent =
+    remainingParagraphs.length > 0
+      ? remainingParagraphs
+      : project.description
+      ? [project.description]
+      : [];
+
   return (
     <div className="relative">
       <CursorRipple />
@@ -64,12 +82,16 @@ export default function CaseStudy() {
             <h1 className="text-display-xl font-display font-bold text-foreground mb-4">
               {project.title}
             </h1>
-            <p className="text-2xl text-foreground-secondary mb-6">
-              {project.subtitle}
-            </p>
-            <p className="text-lg text-foreground-muted max-w-2xl mx-auto leading-relaxed">
-              {project.description}
-            </p>
+            {introParagraph && (
+              <p className="text-2xl text-foreground-secondary mb-6">
+                {introParagraph}
+              </p>
+            )}
+            {project.description && (!introParagraph || project.description !== introParagraph) && (
+              <p className="text-lg text-foreground-muted max-w-2xl mx-auto leading-relaxed">
+                {project.description}
+              </p>
+            )}
           </motion.div>
 
           <motion.div
@@ -148,9 +170,17 @@ export default function CaseStudy() {
               <h2 className="text-3xl font-bold text-foreground mb-6">
                 The Challenge
               </h2>
-              <p className="text-lg text-foreground-secondary leading-relaxed">
-                {project.challenge}
-              </p>
+              {challenges.length > 0 ? (
+                <ul className="text-lg text-foreground-secondary leading-relaxed space-y-3 list-disc list-inside">
+                  {challenges.map((challenge, index) => (
+                    <li key={index}>{challenge}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-lg text-foreground-secondary leading-relaxed">
+                  {project.description}
+                </p>
+              )}
             </motion.div>
 
             {/* Solution */}
@@ -158,9 +188,14 @@ export default function CaseStudy() {
               <h2 className="text-3xl font-bold text-foreground mb-6">
                 The Solution
               </h2>
-              <p className="text-lg text-foreground-secondary leading-relaxed">
-                {project.solution}
-              </p>
+              {solutionContent.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-lg text-foreground-secondary leading-relaxed mb-4 last:mb-0"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </motion.div>
 
             {/* Results */}
