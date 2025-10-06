@@ -88,30 +88,18 @@ export default function PhysicsDemo() {
               const sin = Math.sin(angle);
               const cos = Math.cos(angle);
 
-              // Rotate ball positions
-              const x1 = 0;
-              const y1 = 0;
-              const x2 = dx * cos + dy * sin;
-              const y2 = dy * cos - dx * sin;
-
-              // Rotate ball velocities
-              const vx1 = newVx * cos + newVy * sin;
-              const vy1 = newVy * cos - newVx * sin;
-              const vx2 = otherBall.vx * cos + otherBall.vy * sin;
-              const vy2 = otherBall.vy * cos - otherBall.vx * sin;
-
               // Collision reaction
               const vx1Final =
-                ((ball.mass - otherBall.mass) * vx1 +
-                  2 * otherBall.mass * vx2) /
-                (ball.mass + otherBall.mass);
-              const vx2Final =
-                ((otherBall.mass - ball.mass) * vx2 + 2 * ball.mass * vx1) /
+                ((ball.mass - otherBall.mass) * (newVx * cos + newVy * sin) +
+                  2 *
+                    otherBall.mass *
+                    (otherBall.vx * cos + otherBall.vy * sin)) /
                 (ball.mass + otherBall.mass);
 
               // Update velocities
-              newVx = vx1Final * cos - vy1 * sin;
-              newVy = vy1 * cos + vx1Final * sin;
+              const vy1Final = newVy * cos - newVx * sin;
+              newVx = vx1Final * cos - vy1Final * sin;
+              newVy = vy1Final * cos + vx1Final * sin;
 
               // Separate balls
               const overlap = ball.radius + otherBall.radius - distance;

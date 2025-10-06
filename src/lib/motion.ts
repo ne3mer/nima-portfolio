@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+// Motion variants for animations
 
 export const fadeInUp = {
   initial: {

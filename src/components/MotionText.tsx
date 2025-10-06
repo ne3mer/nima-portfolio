@@ -17,7 +17,6 @@ export default function MotionText({
   delay = 0,
   duration = 0.6,
   stagger = 0.1,
-  as: Component = "div",
   style = {},
 }: MotionTextProps) {
   const text =
@@ -84,7 +83,6 @@ export function MotionLetter({
   delay = 0,
   duration = 0.6,
   stagger = 0.05,
-  as: Component = "div",
   style = {},
 }: MotionLetterProps) {
   const letters = children.split("");

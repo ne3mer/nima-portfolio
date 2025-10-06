@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { fadeInUp, staggerContainer, hoverScale } from "../lib/motion";
+import { fadeInUp, staggerContainer } from "../lib/motion";
 import DitherImage from "../components/DitherImage";
 import TiltCard from "../components/TiltCard";
 

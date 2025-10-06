@@ -10,7 +10,7 @@ export default function SmoothScrollProvider({
 }: SmoothScrollProviderProps) {
   useEffect(() => {
     // Initialize smooth scrolling
-    const lenis = initSmoothScroll();
+    initSmoothScroll();
 
     return () => {
       // Cleanup on unmount

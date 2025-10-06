@@ -3,15 +3,10 @@ import { useState, useEffect } from "react";
 
 interface HeroImageProps {
   src: string;
-  alt?: string;
   className?: string;
 }
 
-export default function HeroImage({
-  src,
-  alt = "Hero Image",
-  className = "",
-}: HeroImageProps) {
+export default function HeroImage({ src, className = "" }: HeroImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

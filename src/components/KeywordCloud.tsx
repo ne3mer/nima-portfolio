@@ -108,8 +108,8 @@ export default function KeywordCloud() {
               onMouseEnter={() => setHoveredKeyword(index)}
               onMouseLeave={() => setHoveredKeyword(null)}
               animate={{
-                x: springX * (isHovered ? 2 : 1),
-                y: springY * (isHovered ? 2 : 1),
+                x: springX.get() * (isHovered ? 2 : 1),
+                y: springY.get() * (isHovered ? 2 : 1),
                 scale: isHovered ? keyword.size * 1.3 : keyword.size,
                 rotate: isHovered ? [0, 5, -5, 0] : 0,
               }}

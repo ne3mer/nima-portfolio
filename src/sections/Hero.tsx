@@ -43,11 +43,7 @@ export default function Hero({ heroImageSrc }: HeroProps) {
       {/* Hero Image with blur effects */}
       {heroImageSrc && (
         <div className="absolute inset-0">
-          <HeroImage
-            src={heroImageSrc}
-            alt="Hero Background"
-            className="w-full h-full"
-          />
+          <HeroImage src={heroImageSrc} className="w-full h-full" />
         </div>
       )}
 
