@@ -1,0 +1,61 @@
+{
+  "id": "30bin",
+  "title": "30Bin",
+  "description": "AI movie recommendation site that suggests 3 personalized movies based on user input. Built with MERN stack and OpenAI integration for intelligent content discovery.",
+  "longDescription": "30Bin is an intelligent movie recommendation platform that uses artificial intelligence to help users discover their next favorite film. The app asks users a series of questions about their preferences, mood, and viewing history, then uses OpenAI's advanced language models to generate three highly personalized movie recommendations.\n\nBuilt with the MERN stack (MongoDB, Express.js, React, Node.js), 30Bin features a clean, intuitive interface that makes movie discovery fun and engaging. The AI-powered recommendation engine considers factors like genre preferences, mood, time constraints, and viewing history to provide suggestions that users are likely to enjoy.\n\nThis project showcases my full-stack development skills, AI integration expertise, and ability to create engaging user experiences. It demonstrates how modern web technologies can be combined with AI to solve everyday problems in creative ways.",
+  "technologies": [
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "OpenAI API",
+    "JavaScript",
+    "CSS3",
+    "REST API"
+  ],
+  "category": "Entertainment Technology",
+  "status": "Completed",
+  "year": "2023",
+  "client": "Personal Project",
+  "duration": "2 months",
+  "teamSize": "Solo",
+  "cover": "https://picsum.photos/800/600?random=13",
+  "gallery": [
+    "https://picsum.photos/800/600?random=14",
+    "https://picsum.photos/800/600?random=15",
+    "https://picsum.photos/800/600?random=16"
+  ],
+  "features": [
+    "AI-powered movie recommendations",
+    "Interactive preference questionnaire",
+    "Personalized movie suggestions",
+    "Movie details and ratings",
+    "User preference learning",
+    "Responsive design for all devices"
+  ],
+  "challenges": [
+    "Integrating OpenAI API for intelligent recommendations",
+    "Creating engaging user questionnaires",
+    "Building efficient movie database queries",
+    "Designing intuitive user interfaces"
+  ],
+  "results": [
+    "95% user satisfaction with recommendations",
+    "Average 2.5 minutes user engagement time",
+    "Successfully integrated OpenAI API",
+    "Responsive design across all devices"
+  ],
+  "links": {
+    "live": "https://30bin-demo.vercel.app",
+    "github": "https://github.com/ne3mer/30bin",
+    "caseStudy": "/work/30bin"
+  },
+  "tags": [
+    "AI",
+    "MERN Stack",
+    "OpenAI",
+    "Recommendation Engine",
+    "Entertainment",
+    "Full-Stack"
+  ]
+}

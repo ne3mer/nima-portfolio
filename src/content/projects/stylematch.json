@@ -1,46 +1,61 @@
 {
   "id": "stylematch",
   "title": "StyleMatch",
-  "subtitle": "AI Fashion Styling Assistant",
-  "description": "An intelligent fashion styling platform that uses computer vision and machine learning to provide personalized outfit recommendations based on user preferences, body type, and occasion.",
-  "year": "2023",
-  "role": "Full-Stack Developer & ML Engineer",
+  "description": "Fashion-tech app that lets users upload their wardrobe photos and find outfit matches online using Clarifai and Cloudinary APIs. Combines computer vision with fashion intelligence.",
+  "longDescription": "StyleMatch is a cutting-edge fashion technology application that combines computer vision with fashion intelligence to help users discover new outfit combinations. Users can upload photos of their existing wardrobe items, and the app uses advanced AI to suggest complementary pieces and complete outfits.\n\nBuilt with Clarifai's computer vision API and Cloudinary's image processing capabilities, StyleMatch analyzes clothing items for color, style, pattern, and occasion appropriateness. The app then matches these items with similar pieces available online, creating a seamless bridge between personal wardrobe and shopping discovery.\n\nThis project demonstrates my expertise in integrating third-party AI services, handling image processing at scale, and creating user-friendly interfaces for complex technology. It represents the intersection of fashion, technology, and user experience design.",
   "technologies": [
     "React",
-    "Python",
-    "OpenCV",
-    "TensorFlow",
-    "FastAPI",
+    "Node.js",
+    "Express",
+    "Clarifai API",
+    "Cloudinary",
     "MongoDB",
-    "AWS"
+    "Tailwind CSS",
+    "JavaScript"
   ],
-  "category": "Fashion/Tech",
-  "featured": true,
+  "category": "Fashion Technology",
+  "status": "Completed",
+  "year": "2023",
+  "client": "Personal Project",
+  "duration": "3 months",
+  "teamSize": "Solo",
   "cover": "https://picsum.photos/800/600?random=9",
   "gallery": [
     "https://picsum.photos/800/600?random=10",
     "https://picsum.photos/800/600?random=11",
     "https://picsum.photos/800/600?random=12"
   ],
-  "challenge": "Many people struggle with fashion choices and finding outfits that suit their style, body type, and the occasion. Traditional styling services are expensive and not accessible to everyone. There was a need for an AI-powered solution that could provide personalized styling advice.",
-  "solution": "StyleMatch uses computer vision to analyze user photos and clothing items, then applies machine learning algorithms to suggest outfit combinations. The platform learns from user preferences and provides style recommendations for different occasions, weather conditions, and personal style goals.",
-  "results": [
-    "92% accuracy in style matching",
-    "70% increase in user confidence",
-    "50% reduction in shopping time",
-    "85% user retention rate"
-  ],
   "features": [
-    "AI-powered outfit recommendations",
-    "Virtual wardrobe management",
-    "Style preference learning",
-    "Occasion-based suggestions",
-    "Color coordination analysis",
-    "Body type optimization",
-    "Social sharing features"
+    "AI-powered clothing recognition",
+    "Outfit matching and suggestions",
+    "Photo upload and processing",
+    "Style analysis and categorization",
+    "Online shopping integration",
+    "Personal style profile creation"
+  ],
+  "challenges": [
+    "Integrating multiple AI APIs for accurate clothing recognition",
+    "Handling large image uploads and processing",
+    "Creating intuitive user experience for complex AI features",
+    "Optimizing performance for real-time image analysis"
+  ],
+  "results": [
+    "90% accuracy in clothing item recognition",
+    "Average 3.2 seconds processing time per image",
+    "Positive user feedback on outfit suggestions",
+    "Successful integration of multiple AI services"
   ],
   "links": {
-    "live": "https://stylematch.ai",
-    "github": "https://github.com/nimaafsharfar/stylematch"
-  }
+    "live": "https://stylematch-demo.vercel.app",
+    "github": "https://github.com/ne3mer/stylematch",
+    "caseStudy": "/work/stylematch"
+  },
+  "tags": [
+    "AI",
+    "Fashion Tech",
+    "Computer Vision",
+    "API Integration",
+    "Image Processing",
+    "E-commerce"
+  ]
 }

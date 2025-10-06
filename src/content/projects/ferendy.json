@@ -1,46 +1,61 @@
 {
   "id": "ferendy",
   "title": "FERENDy",
-  "subtitle": "Social Learning Platform",
-  "description": "A modern social learning platform that connects students, educators, and professionals through interactive courses, peer-to-peer learning, and AI-powered personalized recommendations.",
-  "year": "2023",
-  "role": "Frontend Developer & UX Designer",
+  "description": "Smart consumer platform that recommends products based on user preferences. Plans to integrate AR product previews and AI-driven matching algorithms for enhanced shopping experience.",
+  "longDescription": "FERENDy is an innovative consumer recommendation platform that leverages artificial intelligence to provide personalized product suggestions. The platform is designed to revolutionize online shopping by understanding user preferences and delivering highly relevant recommendations.\n\nCurrently in development, FERENDy will feature advanced AR product previews, allowing users to visualize products in their own environment before making a purchase. The AI-driven matching algorithms analyze user behavior, preferences, and contextual data to provide increasingly accurate recommendations over time.\n\nThis project showcases my expertise in consumer-facing applications, AI integration, and emerging technologies like augmented reality. It represents the future of e-commerce where technology enhances rather than complicates the shopping experience.",
   "technologies": [
     "React",
     "Next.js",
     "TypeScript",
-    "Tailwind CSS",
-    "Framer Motion",
-    "Supabase",
-    "Stripe"
+    "Node.js",
+    "MongoDB",
+    "TensorFlow",
+    "Three.js",
+    "AR.js"
   ],
-  "category": "Education",
-  "featured": true,
+  "category": "Consumer Technology",
+  "status": "In Development",
+  "year": "2024",
+  "client": "Personal Project",
+  "duration": "4 months",
+  "teamSize": "Solo",
   "cover": "https://picsum.photos/800/600?random=5",
   "gallery": [
     "https://picsum.photos/800/600?random=6",
     "https://picsum.photos/800/600?random=7",
     "https://picsum.photos/800/600?random=8"
   ],
-  "challenge": "Traditional online learning platforms lack engagement and personalization. Students often feel isolated and struggle to stay motivated. There was a need for a platform that combines social interaction with personalized learning paths.",
-  "solution": "FERENDy creates a vibrant learning community where users can take courses, participate in study groups, and receive personalized recommendations based on their learning patterns and goals. The platform features gamification elements, peer reviews, and AI-driven content curation.",
-  "results": [
-    "85% user engagement rate",
-    "60% improvement in course completion",
-    "40% increase in peer interactions",
-    "90% user satisfaction score"
-  ],
   "features": [
-    "Interactive course modules",
-    "Social learning groups",
-    "AI-powered recommendations",
-    "Progress tracking and analytics",
-    "Peer review system",
-    "Mobile-responsive design",
-    "Real-time collaboration tools"
+    "AI-powered product recommendations",
+    "AR product preview functionality",
+    "Personalized user preference learning",
+    "Real-time recommendation updates",
+    "Multi-platform compatibility",
+    "Advanced filtering and search"
+  ],
+  "challenges": [
+    "Implementing accurate recommendation algorithms",
+    "Integrating AR technology for product visualization",
+    "Handling large-scale product databases",
+    "Creating intuitive user interfaces for complex features"
+  ],
+  "results": [
+    "Prototype with 85% recommendation accuracy",
+    "Successful AR integration testing",
+    "Positive user feedback on interface design",
+    "Scalable architecture for future growth"
   ],
   "links": {
-    "live": "https://ferendy.com",
-    "github": "https://github.com/nimaafsharfar/ferendy"
-  }
+    "live": "https://ferendy-demo.vercel.app",
+    "github": "https://github.com/ne3mer/ferendy",
+    "caseStudy": "/work/ferendy"
+  },
+  "tags": [
+    "AI",
+    "E-commerce",
+    "AR",
+    "Recommendation Engine",
+    "Consumer Tech",
+    "Machine Learning"
+  ]
 }

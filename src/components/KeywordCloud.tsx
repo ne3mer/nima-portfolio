@@ -10,18 +10,21 @@ interface Keyword {
 }
 
 const keywords: Keyword[] = [
-  { text: "Ethical AI", color: "#8b5cf6", size: 1.2, x: 20, y: 30 },
-  { text: "Design Systems", color: "#06b6d4", size: 1.0, x: 70, y: 20 },
+  { text: "Ethical AI", color: "#8b5cf6", size: 1.3, x: 20, y: 25 },
+  { text: "MBA Student", color: "#06b6d4", size: 1.1, x: 75, y: 20 },
   { text: "React", color: "#f59e0b", size: 1.4, x: 30, y: 60 },
-  { text: "TypeScript", color: "#8b5cf6", size: 1.1, x: 80, y: 50 },
-  { text: "Machine Learning", color: "#10b981", size: 0.9, x: 15, y: 80 },
-  { text: "Creative Coding", color: "#ef4444", size: 1.3, x: 60, y: 70 },
-  { text: "User Experience", color: "#3b82f6", size: 1.0, x: 40, y: 40 },
-  { text: "Performance", color: "#06b6d4", size: 0.8, x: 75, y: 85 },
-  { text: "WebGL", color: "#f59e0b", size: 1.1, x: 25, y: 15 },
-  { text: "Innovation", color: "#10b981", size: 1.2, x: 85, y: 35 },
-  { text: "Accessibility", color: "#ef4444", size: 0.9, x: 50, y: 90 },
-  { text: "Scalability", color: "#3b82f6", size: 1.0, x: 10, y: 50 },
+  { text: "TypeScript", color: "#8b5cf6", size: 1.2, x: 80, y: 50 },
+  { text: "Machine Learning", color: "#10b981", size: 1.0, x: 15, y: 80 },
+  { text: "Creative Technology", color: "#ef4444", size: 1.3, x: 60, y: 70 },
+  { text: "User Experience", color: "#3b82f6", size: 1.1, x: 40, y: 40 },
+  { text: "Business Strategy", color: "#06b6d4", size: 1.0, x: 75, y: 85 },
+  { text: "Node.js", color: "#f59e0b", size: 1.1, x: 25, y: 15 },
+  { text: "Digital Transformation", color: "#10b981", size: 1.2, x: 85, y: 35 },
+  { text: "Design Thinking", color: "#ef4444", size: 0.9, x: 50, y: 90 },
+  { text: "Sustainability", color: "#3b82f6", size: 1.0, x: 10, y: 50 },
+  { text: "Full-Stack", color: "#8b5cf6", size: 1.2, x: 45, y: 15 },
+  { text: "Python", color: "#10b981", size: 1.0, x: 70, y: 60 },
+  { text: "Figma", color: "#06b6d4", size: 0.9, x: 20, y: 70 },
 ];
 
 export default function KeywordCloud() {

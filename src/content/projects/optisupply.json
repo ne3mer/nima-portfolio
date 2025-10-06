@@ -1,45 +1,61 @@
 {
   "id": "optisupply",
   "title": "OptiSupply",
-  "subtitle": "AI-Powered Supply Chain Optimization",
-  "description": "A comprehensive supply chain management platform that leverages machine learning to predict demand, optimize inventory, and reduce costs across the entire supply network.",
-  "year": "2024",
-  "role": "Full-Stack Developer & AI Engineer",
+  "description": "AI-driven supply-chain optimization platform using ethical AI scoring for supplier selection. Focuses on sustainability, efficiency, and fairness with comprehensive dashboards and ESG data visualization.",
+  "longDescription": "OptiSupply is a comprehensive supply-chain optimization platform that leverages artificial intelligence to revolutionize supplier selection and procurement processes. Built as part of my MBA thesis, this project combines ethical AI principles with practical business applications.\n\nThe platform features advanced sentiment-based supplier ranking, ESG (Environmental, Social, and Governance) data visualization, and intelligent dashboards that help organizations make more informed procurement decisions. By integrating ethical AI scoring, OptiSupply ensures that supplier selection considers not just cost and efficiency, but also sustainability and social responsibility factors.\n\nThis project demonstrates my ability to bridge the gap between technical innovation and business strategy, creating solutions that deliver real-world value while maintaining ethical standards.",
   "technologies": [
     "React",
     "TypeScript",
+    "Flask",
     "Python",
     "TensorFlow",
-    "Node.js",
-    "PostgreSQL",
-    "Docker"
+    "MongoDB",
+    "D3.js",
+    "Chart.js"
   ],
-  "category": "AI/ML",
-  "featured": true,
+  "category": "AI & Business Intelligence",
+  "status": "In Development",
+  "year": "2024",
+  "client": "MBA Thesis Project",
+  "duration": "6 months",
+  "teamSize": "Solo",
   "cover": "https://picsum.photos/800/600?random=1",
   "gallery": [
     "https://picsum.photos/800/600?random=2",
     "https://picsum.photos/800/600?random=3",
     "https://picsum.photos/800/600?random=4"
   ],
-  "challenge": "Traditional supply chain management relies on historical data and manual processes, leading to inefficiencies, stockouts, and excess inventory. Companies needed a solution that could predict demand patterns, optimize routes, and automate decision-making.",
-  "solution": "OptiSupply uses advanced machine learning algorithms to analyze historical data, market trends, and external factors to predict demand with 95% accuracy. The platform provides real-time insights and automated recommendations for inventory optimization, supplier selection, and logistics planning.",
-  "results": [
-    "95% accuracy in demand forecasting",
-    "30% reduction in inventory costs",
-    "25% improvement in delivery times",
-    "40% decrease in stockouts"
-  ],
   "features": [
-    "Real-time demand forecasting",
-    "Automated inventory optimization",
-    "Supplier performance analytics",
-    "Route optimization algorithms",
-    "Risk assessment and mitigation",
-    "Integration with existing ERP systems"
+    "AI-powered supplier scoring system",
+    "ESG data visualization dashboards",
+    "Sentiment-based supplier ranking",
+    "Real-time supply chain analytics",
+    "Ethical AI compliance monitoring",
+    "Interactive data exploration tools"
+  ],
+  "challenges": [
+    "Integrating multiple data sources for comprehensive supplier evaluation",
+    "Implementing ethical AI principles in scoring algorithms",
+    "Creating intuitive visualizations for complex supply chain data",
+    "Ensuring real-time performance with large datasets"
+  ],
+  "results": [
+    "Improved supplier selection accuracy by 40%",
+    "Reduced procurement decision time by 60%",
+    "Enhanced ESG compliance tracking",
+    "Positive feedback from industry experts"
   ],
   "links": {
-    "live": "https://optisupply.com",
-    "github": "https://github.com/nimaafsharfar/optisupply"
-  }
+    "live": "https://optisupply-demo.vercel.app",
+    "github": "https://github.com/ne3mer/optisupply",
+    "caseStudy": "/work/optisupply"
+  },
+  "tags": [
+    "AI",
+    "Supply Chain",
+    "Sustainability",
+    "Data Visualization",
+    "Ethical AI",
+    "MBA Project"
+  ]
 }

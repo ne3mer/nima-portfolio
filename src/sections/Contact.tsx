@@ -3,33 +3,32 @@ import { useRef, useState } from "react";
 import { fadeInUp, staggerContainer } from "../lib/motion";
 
 const socialLinks = [
-  { name: "GitHub", url: "https://github.com/nimaafsharfar", icon: "🐙" },
+  { name: "GitHub", url: "https://github.com/ne3mer", icon: "🐙" },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/nimaafsharfar",
+    url: "https://www.linkedin.com/in/nima-afsharfar-230a21176?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     icon: "💼",
   },
-  { name: "Twitter", url: "https://twitter.com/nimaafsharfar", icon: "🐦" },
-  { name: "Instagram", url: "https://instagram.com/nimaafsharfar", icon: "📸" },
+  { name: "Email", url: "mailto:ne3mer@gmail.com", icon: "📧" },
 ];
 
 const contactMethods = [
   {
     title: "Email",
     description: "For project inquiries and collaborations",
-    value: "nima@example.com",
-    action: "mailto:nima@example.com",
-  },
-  {
-    title: "Phone",
-    description: "Available for urgent matters",
-    value: "+36 30 123 4567",
-    action: "tel:+36301234567",
+    value: "ne3mer@gmail.com",
+    action: "mailto:ne3mer@gmail.com",
   },
   {
     title: "Location",
     description: "Based in Budapest, Hungary",
     value: "Budapest, Hungary",
+    action: null,
+  },
+  {
+    title: "Availability",
+    description: "Open to new opportunities",
+    value: "Available for freelance work",
     action: null,
   },
 ];
@@ -42,18 +41,18 @@ export default function Contact() {
   return (
     <section
       ref={ref}
-      className="min-h-screen py-20 px-6 bg-background relative overflow-hidden"
+      className="min-h-screen py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
     >
       {/* Animated background */}
       <div className="absolute inset-0">
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-transparent to-cyan-600/5" />
 
         {/* Floating particles */}
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-primary/30 rounded-full"
+            className="absolute w-1 h-1 bg-purple-500/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -80,26 +79,26 @@ export default function Contact() {
         >
           <motion.h2
             variants={fadeInUp}
-            className="text-display-lg font-display font-bold text-gradient mb-6"
+            className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-orange-400 mb-6"
           >
             Let's Build Something Extraordinary
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
-            className="text-xl text-foreground-secondary max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12"
           >
             I'm always excited to work on new projects and collaborate with
             like-minded people. Whether you have a specific project in mind or
-            just want to chat about technology and design, I'd love to hear from
-            you.
+            just want to chat about technology, design, and business strategy,
+            I'd love to hear from you.
           </motion.p>
 
           {/* Main CTA */}
           <motion.div variants={fadeInUp}>
             <motion.a
-              href="mailto:nima@example.com"
-              className="inline-block px-12 py-6 bg-primary text-white rounded-full font-semibold text-xl hover:bg-primary-600 transition-colors magnetic ripple-effect"
+              href="mailto:ne3mer@gmail.com"
+              className="inline-block px-12 py-6 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-full font-semibold text-xl hover:from-purple-700 hover:to-cyan-700 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -120,30 +119,28 @@ export default function Contact() {
             <motion.div
               key={method.title}
               variants={fadeInUp}
-              className={`group relative p-8 rounded-2xl bg-background-secondary border border-white/10 transition-all duration-300 cursor-pointer ${
+              className={`group relative p-8 rounded-2xl bg-gray-800/50 border border-white/10 transition-all duration-300 cursor-pointer ${
                 hoveredMethod === index
-                  ? "scale-105 border-primary/30"
+                  ? "scale-105 border-purple-500/30"
                   : "hover:border-white/20"
               }`}
               onMouseEnter={() => setHoveredMethod(index)}
               onMouseLeave={() => setHoveredMethod(null)}
               whileHover={{ y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {method.title}
               </h3>
-              <p className="text-foreground-muted text-sm mb-4">
-                {method.description}
-              </p>
+              <p className="text-gray-400 text-sm mb-4">{method.description}</p>
               {method.action ? (
                 <a
                   href={method.action}
-                  className="text-primary font-medium hover:text-primary-600 transition-colors"
+                  className="text-cyan-400 font-medium hover:text-cyan-300 transition-colors"
                 >
                   {method.value}
                 </a>
               ) : (
-                <span className="text-foreground font-medium">
+                <span className="text-gray-300 font-medium">
                   {method.value}
                 </span>
               )}
@@ -160,7 +157,7 @@ export default function Contact() {
         >
           <motion.h3
             variants={fadeInUp}
-            className="text-2xl font-semibold text-foreground mb-8"
+            className="text-2xl font-semibold text-white mb-8"
           >
             Connect With Me
           </motion.h3>
@@ -172,7 +169,7 @@ export default function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-background-secondary border border-white/10 rounded-full flex items-center justify-center text-2xl hover:bg-primary hover:text-white transition-colors magnetic"
+                className="w-16 h-16 bg-gray-800/50 border border-white/10 rounded-full flex items-center justify-center text-2xl hover:bg-gradient-to-r hover:from-purple-600 hover:to-cyan-600 hover:text-white transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -200,12 +197,12 @@ export default function Contact() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <div className="text-foreground-muted text-sm">
-              © 2024 Nima Afshar Far. All rights reserved.
+            <div className="text-gray-400 text-sm">
+              © 2024 Mohammad Nima Afshar Far. All rights reserved.
             </div>
 
-            <div className="text-foreground-muted text-sm">
-              Made with React, Tailwind, and a bit of magic ✨ in Budapest
+            <div className="text-gray-400 text-sm">
+              Made with React, TypeScript, and a bit of magic ✨ in Budapest
             </div>
           </motion.div>
         </motion.div>

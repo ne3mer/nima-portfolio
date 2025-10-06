@@ -26,8 +26,8 @@ export default function Hero({ heroImageSrc }: HeroProps) {
       setMousePosition({ x: e.clientX, y: e.clientY });
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
-        mouseX.set((e.clientX - rect.left - rect.width / 2) / 30);
-        mouseY.set((e.clientY - rect.top - rect.height / 2) / 30);
+        mouseX.set((e.clientX - rect.left - rect.width / 2) / 30); // Reduced intensity
+        mouseY.set((e.clientY - rect.top - rect.height / 2) / 30); // Reduced intensity
       }
     };
 
@@ -51,34 +51,34 @@ export default function Hero({ heroImageSrc }: HeroProps) {
       {!heroImageSrc && (
         <div className="absolute inset-0">
           <motion.div
-            className="absolute inset-0 opacity-40"
+            className="absolute inset-0"
             style={{
               background: `
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 119, 198, 0.1) 100%)
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)
               `,
             }}
             animate={{
               background: [
                 `
-                  radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-                  linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 119, 198, 0.1) 100%)
+                  radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+                  linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)
                 `,
                 `
-                  radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 60% 60%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-                  linear-gradient(135deg, rgba(255, 119, 198, 0.1) 0%, rgba(120, 219, 255, 0.1) 100%)
+                  radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.4) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                  radial-gradient(circle at 60% 60%, rgba(245, 158, 11, 0.3) 0%, transparent 50%),
+                  linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%)
                 `,
                 `
-                  radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 60% 60%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                  linear-gradient(135deg, rgba(120, 219, 255, 0.1) 0%, rgba(120, 119, 198, 0.1) 100%)
+                  radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.4) 0%, transparent 50%),
+                  radial-gradient(circle at 60% 60%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+                  linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(139, 92, 246, 0.15) 100%)
                 `,
               ],
             }}
@@ -96,27 +96,21 @@ export default function Hero({ heroImageSrc }: HeroProps) {
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full"
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              width: Math.random() * 6 + 2,
-              height: Math.random() * 6 + 2,
-              background: `hsl(${Math.random() * 60 + 240}, 80%, 70%)`,
-              boxShadow: `0 0 ${Math.random() * 10 + 5}px currentColor`,
             }}
             animate={{
-              y: [0, -120, 0],
-              x: [0, Math.random() * 60 - 30, 0],
+              y: [0, -100, 0],
               opacity: [0, 1, 0],
-              scale: [0, 1.5, 0],
-              rotate: [0, 360, 0],
+              scale: [0, 1, 0],
             }}
             transition={{
-              duration: 5 + Math.random() * 3,
+              duration: 3 + Math.random() * 2,
               repeat: Infinity,
-              delay: Math.random() * 5,
               ease: "easeInOut",
+              delay: Math.random() * 2,
             }}
           />
         ))}
@@ -131,24 +125,21 @@ export default function Hero({ heroImageSrc }: HeroProps) {
               top: `${Math.random() * 100}%`,
               width: Math.random() * 20 + 10,
               height: Math.random() * 20 + 10,
-              background:
-                i % 2 === 0
-                  ? `linear-gradient(45deg, #ff6b6b, #4ecdc4)`
-                  : `linear-gradient(45deg, #a8e6cf, #ffd3a5)`,
-              borderRadius: i % 3 === 0 ? "50%" : i % 3 === 1 ? "20%" : "0%",
-              filter: "blur(1px)",
+              background: `linear-gradient(45deg, ${
+                ["#8b5cf6", "#06b6d4", "#f59e0b"][Math.floor(Math.random() * 3)]
+              }, transparent)`,
+              borderRadius: Math.random() > 0.5 ? "50%" : "20%",
             }}
             animate={{
               y: [0, -50, 0],
-              x: [0, 30, 0],
-              rotate: [0, 180, 360],
-              scale: [1, 1.3, 1],
+              rotate: [0, 360, 0],
+              scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 6 + Math.random() * 4,
+              duration: 4 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 3,
               ease: "easeInOut",
+              delay: Math.random() * 2,
             }}
           />
         ))}
@@ -158,47 +149,29 @@ export default function Hero({ heroImageSrc }: HeroProps) {
       <div className="absolute inset-0">
         {[...Array(6)].map((_, i) => (
           <motion.div
-            key={i}
-            className="absolute"
+            key={`geo-${i}`}
+            className="absolute border-2 border-purple-500/30"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              width: Math.random() * 80 + 40,
-              height: Math.random() * 80 + 40,
-              background: `linear-gradient(45deg, 
-                rgba(139, 92, 246, 0.1), 
-                rgba(6, 182, 212, 0.1), 
-                rgba(245, 158, 11, 0.1)
-              )`,
-              border: `2px solid ${
-                i % 3 === 0
-                  ? "rgba(139, 92, 246, 0.3)"
-                  : i % 3 === 1
-                  ? "rgba(6, 182, 212, 0.3)"
-                  : "rgba(245, 158, 11, 0.3)"
-              }`,
-              borderRadius:
-                i % 4 === 0
-                  ? "50%"
-                  : i % 4 === 1
-                  ? "20%"
-                  : i % 4 === 2
-                  ? "0%"
-                  : "30%",
-              filter: "blur(0.5px)",
+              width: Math.random() * 40 + 20,
+              height: Math.random() * 40 + 20,
+              clipPath: [
+                "polygon(50% 0%, 0% 100%, 100% 100%)",
+                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              ][Math.floor(Math.random() * 3)],
             }}
             animate={{
               rotate: [0, 360],
-              scale: [1, 1.3, 1],
-              opacity: [0.1, 0.4, 0.1],
-              x: [0, 20, 0],
-              y: [0, -20, 0],
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.7, 0.3],
             }}
             transition={{
-              duration: 8 + Math.random() * 6,
+              duration: 6 + Math.random() * 4,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 1.5,
+              delay: Math.random() * 3,
             }}
           />
         ))}
@@ -221,13 +194,10 @@ export default function Hero({ heroImageSrc }: HeroProps) {
           {/* 3D Name with glow effect */}
           <motion.div variants={fadeInUp} className="mb-8 relative">
             <motion.div
-              className="absolute inset-0 blur-3xl opacity-30"
-              style={{
-                background: "linear-gradient(45deg, #8b5cf6, #06b6d4, #f59e0b)",
-              }}
+              className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-cyan-600 to-orange-600 rounded-lg blur-2xl opacity-30"
               animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.5, 0.3],
+                opacity: [0.2, 0.4, 0.2],
+                scale: [1, 1.05, 1],
               }}
               transition={{
                 duration: 3,
@@ -242,17 +212,17 @@ export default function Hero({ heroImageSrc }: HeroProps) {
               stagger={0.05}
               style={{
                 textShadow: `
-                0 0 30px rgba(139, 92, 246, 0.5),
-                0 0 60px rgba(6, 182, 212, 0.3),
-                0 0 90px rgba(245, 158, 11, 0.2),
-                2px 2px 0px rgba(255, 0, 255, 0.3),
-                -2px -2px 0px rgba(0, 255, 255, 0.3)
-              `,
+                  0 0 30px rgba(139, 92, 246, 0.5),
+                  0 0 60px rgba(6, 182, 212, 0.3),
+                  0 0 90px rgba(245, 158, 11, 0.2),
+                  2px 2px 0px rgba(255, 0, 255, 0.3),
+                  -2px -2px 0px rgba(0, 255, 255, 0.3)
+                `,
                 filter: "drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))",
                 fontFamily: "Space Grotesk, sans-serif",
               }}
             >
-              NIMA
+              NIMA AFSHAR FAR
             </MotionLetter>
           </motion.div>
 
@@ -275,17 +245,28 @@ export default function Hero({ heroImageSrc }: HeroProps) {
               stagger={0.1}
               effect="glitch"
             >
-              FULL-STACK DEVELOPER & CREATIVE ENGINEER
+              MBA STUDENT · FULL-STACK DEVELOPER · CREATIVE TECHNOLOGIST
+            </PowerText>
+          </motion.div>
+
+          {/* Location */}
+          <motion.div variants={fadeInUp} className="mb-8 relative">
+            <PowerText
+              className="relative text-lg md:text-xl text-gray-300 flex items-center justify-center gap-2"
+              delay={1.0}
+              stagger={0.05}
+              effect="slide"
+            >
+              📍 Budapest, Hungary
             </PowerText>
           </motion.div>
 
           {/* Enhanced description with wave effect */}
           <motion.div variants={fadeInUp} className="mb-16 relative">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-2xl blur-xl"
+              className="absolute -inset-2 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-lg blur opacity-20"
               animate={{
-                y: [0, -10, 0],
-                opacity: [0.1, 0.2, 0.1],
+                opacity: [0.1, 0.3, 0.1],
               }}
               transition={{
                 duration: 4,
@@ -296,13 +277,11 @@ export default function Hero({ heroImageSrc }: HeroProps) {
             <PowerText
               className="relative text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-8 py-6"
               delay={1.4}
-              stagger={0.05}
+              stagger={0.03}
               effect="wave"
             >
-              I craft digital experiences that blend cutting-edge technology
-              with beautiful design. Specializing in AI-powered applications,
-              interactive web experiences, and innovative solutions that push
-              the boundaries of what's possible.
+              "I build digital experiences where design, business, and
+              technology come together."
             </PowerText>
           </motion.div>
 
@@ -330,60 +309,75 @@ export default function Hero({ heroImageSrc }: HeroProps) {
 
       {/* Enhanced scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.6 }}
+        transition={{ delay: 2 }}
       >
         <motion.div
-          className="flex flex-col items-center text-gray-400"
+          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <motion.span
-            className="text-sm mb-4 font-medium"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            scroll to explore
-          </motion.span>
           <motion.div
-            className="w-8 h-12 border-2 border-gradient-to-b from-purple-500 to-cyan-500 rounded-full flex justify-center relative overflow-hidden"
-            style={{
-              background: "linear-gradient(45deg, transparent, transparent)",
-              borderImage: "linear-gradient(45deg, #8b5cf6, #06b6d4) 1",
-            }}
-            animate={{ y: [0, 10, 0] }}
+            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
-          >
-            <motion.div
-              className="w-2 h-4 bg-gradient-to-b from-purple-400 to-cyan-400 rounded-full mt-2"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.div>
+          />
         </motion.div>
       </motion.div>
 
       {/* Enhanced interactive cursor effect */}
       <motion.div
-        className="fixed top-0 left-0 w-40 h-40 rounded-full pointer-events-none z-20"
+        className="fixed pointer-events-none z-50"
         style={{
-          x: mousePosition.x - 80,
-          y: mousePosition.y - 80,
-          background:
-            "radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 100%)",
+          left: mousePosition.x - 10,
+          top: mousePosition.y - 10,
         }}
         animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.3, 0.6, 0.3],
+          scale: [1, 1.2, 1],
+          opacity: [0.5, 0.8, 0.5],
         }}
         transition={{
-          duration: 3,
+          duration: 2,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-      />
+      >
+        <div className="w-5 h-5 border-2 border-cyan-400 rounded-full bg-cyan-400/20" />
+      </motion.div>
+
+      {/* Additional floating orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            className="absolute w-32 h-32 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              background: `radial-gradient(circle, ${
+                [
+                  "rgba(139, 92, 246, 0.1)",
+                  "rgba(6, 182, 212, 0.1)",
+                  "rgba(245, 158, 11, 0.1)",
+                ][i]
+              } 0%, transparent 70%)`,
+            }}
+            animate={{
+              x: [0, 100, 0],
+              y: [0, -100, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2,
+            }}
+          />
+        ))}
+      </div>
 
       {/* Enhanced floating elements */}
       <FloatingElements />
