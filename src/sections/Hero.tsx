@@ -39,13 +39,13 @@ export default function Hero() {
           variants={fadeInUp}
           className="flex flex-col sm:flex-row gap-8 justify-center items-center"
         >
-          <button 
+          <button
             className="px-10 py-5 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-full font-semibold text-lg hover:scale-105 transition-transform"
             aria-label="View my portfolio projects"
           >
             View My Work
           </button>
-          <button 
+          <button
             className="px-10 py-5 border-2 border-purple-500 text-gray-200 rounded-full font-semibold text-lg hover:bg-purple-600/20 transition-colors"
             aria-label="Contact me for collaboration"
           >
