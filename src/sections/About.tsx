@@ -25,7 +25,7 @@ export default function About() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-16 items-center"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
         >
           <motion.div variants={fadeInLeft} className="space-y-8">
             <div>
