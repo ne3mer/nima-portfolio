@@ -6,8 +6,8 @@ import Contact from "../sections/Contact";
 import CursorRipple from "../components/CursorRipple";
 
 export default function Home() {
-  // Your stunning black and white portrait with snowflakes
-  const heroImageSrc = "/images/hero-portrait.jpg";
+  // Your actual portrait image
+  const heroImageSrc = "/images/image.png";
 
   return (
     <div className="relative">
