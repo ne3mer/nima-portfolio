@@ -62,12 +62,13 @@ export default function ParticleSystem() {
       particle.y += particle.vy;
       particle.life--;
 
-      // Mouse attraction
+      // Mouse attraction - optimized distance calculation
       const dx = mouseRef.current.x - particle.x;
       const dy = mouseRef.current.y - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      const distanceSquared = dx * dx + dy * dy;
       
-      if (distance < 100) {
+      if (distanceSquared < 10000) { // 100^2 = 10000
+        const distance = Math.sqrt(distanceSquared);
         const force = (100 - distance) / 100;
         particle.vx += (dx / distance) * force * 0.1;
         particle.vy += (dy / distance) * force * 0.1;
@@ -86,8 +87,8 @@ export default function ParticleSystem() {
       return particle.life > 0;
     });
 
-    // Add new particles
-    if (Math.random() < 0.3) {
+    // Add new particles with performance limit
+    if (Math.random() < 0.3 && particlesRef.current.length < 200) {
       particlesRef.current.push(
         createParticle(
           Math.random() * canvas.width,
