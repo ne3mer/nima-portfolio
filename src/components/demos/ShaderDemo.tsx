@@ -158,9 +158,9 @@ export default function ShaderDemo() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     if (!gl) {
-      console.error('WebGL not supported');
+      console.error('WebGL not supported in this browser');
       return;
     }
 
