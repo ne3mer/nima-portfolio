@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 
 const target = resolve("node_modules", "rollup", "dist", "native.js");
-const fallbackMarker = "return require('./rollup.js'); // rollup-native-fallback";
+const fallbackMarker = "return require('@rollup/wasm-node'); // rollup-native-wasm-fallback";
 
 if (!existsSync(target)) {
   console.warn("rollup native bindings file not found; skipping rollup fallback patch.");
@@ -24,7 +24,7 @@ if (!original.includes(throwSnippet)) {
 }
 
 const fallback = "\t\tif ((error && (error.code === 'MODULE_NOT_FOUND' || error.code === 'ERR_MODULE_NOT_FOUND')) && id.startsWith('@rollup/rollup-')) {\n" +
-  "\t\t\treturn require('./rollup.js'); // rollup-native-fallback\n" +
+  "\t\t\treturn require('@rollup/wasm-node'); // rollup-native-wasm-fallback\n" +
   "\t\t}\n\n";
 
 const updated = original.replace(throwSnippet, fallback + throwSnippet);
