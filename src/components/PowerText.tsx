@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
-import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface PowerTextProps {
   children: string;
   className?: string;
   delay?: number;
   stagger?: number;
-  effect?: "glitch" | "wave" | "typewriter" | "slide";
+  effect?: "slide" | "glitch" | "wave" | "typewriter";
 }
 
 export default function PowerText({
@@ -17,16 +17,17 @@ export default function PowerText({
   effect = "slide",
 }: PowerTextProps) {
   const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const words = children.split(" ");
 
-  const getWordVariants = () => {
+  const getVariants = () => {
     switch (effect) {
       case "glitch":
         return {
           hidden: {
             opacity: 0,
             x: -20,
-            filter: "blur(5px)",
+            filter: "blur(10px)",
           },
           visible: {
             opacity: 1,
@@ -34,8 +35,7 @@ export default function PowerText({
             filter: "blur(0px)",
             transition: {
               duration: 0.6,
-              ease: "easeOut",
-              x: { type: "spring", stiffness: 100, damping: 10 },
+              ease: [0.6, -0.05, 0.01, 0.99],
             },
           },
         };
@@ -44,7 +44,7 @@ export default function PowerText({
           hidden: {
             opacity: 0,
             y: 50,
-            rotateX: 90,
+            rotateX: -90,
           },
           visible: {
             opacity: 1,
@@ -52,7 +52,7 @@ export default function PowerText({
             rotateX: 0,
             transition: {
               duration: 0.8,
-              ease: [0.6, 0.01, -0.05, 0.9],
+              ease: [0.6, -0.05, 0.01, 0.99],
             },
           },
         };
@@ -66,8 +66,8 @@ export default function PowerText({
             opacity: 1,
             width: "auto",
             transition: {
-              duration: 0.1,
-              ease: "linear",
+              duration: 0.5,
+              ease: "easeInOut",
             },
           },
         };
@@ -82,7 +82,7 @@ export default function PowerText({
             y: 0,
             transition: {
               duration: 0.6,
-              ease: "easeOut",
+              ease: [0.6, -0.05, 0.01, 0.99],
             },
           },
         };
@@ -100,7 +100,7 @@ export default function PowerText({
     },
   };
 
-  const wordVariants = getWordVariants();
+  const wordVariants = getVariants();
 
   return (
     <motion.div
@@ -108,15 +108,19 @@ export default function PowerText({
       className={className}
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
-      style={{ display: "inline-block" }}
+      animate={isInView ? "visible" : "hidden"}
+      style={{
+        perspective: 1000,
+      }}
     >
       {words.map((word, index) => (
         <motion.span
           key={index}
           variants={wordVariants}
           className="inline-block mr-2"
-          style={{ display: "inline-block", whiteSpace: "nowrap" }}
+          style={{
+            transformStyle: "preserve-3d",
+          }}
         >
           {word}
         </motion.span>

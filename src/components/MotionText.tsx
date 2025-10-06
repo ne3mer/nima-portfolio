@@ -20,7 +20,9 @@ export default function MotionText({
   as: Component = "div",
   style = {},
 }: MotionTextProps) {
-  const words = typeof children === "string" ? children.split(" ") : [children];
+  const text =
+    typeof children === "string" ? children : children?.toString() || "";
+  const words = text.split(" ");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,23 +36,19 @@ export default function MotionText({
   };
 
   const wordVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration,
-        ease: "easeOut",
+        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };
 
   return (
     <motion.div
-      as={Component}
       className={className}
       style={style}
       variants={containerVariants}
@@ -103,23 +101,19 @@ export function MotionLetter({
   };
 
   const letterVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration,
-        ease: "easeOut",
+        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };
 
   return (
     <motion.div
-      as={Component}
       className={className}
       style={style}
       variants={containerVariants}

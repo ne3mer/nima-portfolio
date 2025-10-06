@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Particle {
+  id: number;
   x: number;
   y: number;
   vx: number;
@@ -14,10 +15,10 @@ interface Particle {
 
 export default function ParticleSystem() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isActive, setIsActive] = useState(false);
   const animationRef = useRef<number>();
-  const particlesRef = useRef<Particle[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const [isRunning, setIsRunning] = useState(true);
 
   const colors = [
     "#8b5cf6", // purple
@@ -28,161 +29,195 @@ export default function ParticleSystem() {
     "#3b82f6", // blue
   ];
 
-  const createParticle = useCallback((x: number, y: number) => {
-    const angle = Math.random() * Math.PI * 2;
-    const speed = Math.random() * 3 + 1;
-    const size = Math.random() * 4 + 2;
-    const life = Math.random() * 100 + 50;
-
-    return {
-      x,
-      y,
-      vx: Math.cos(angle) * speed,
-      vy: Math.sin(angle) * speed,
-      size,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      life,
-      maxLife: life,
-    };
-  }, [colors]);
-
-  const updateParticles = useCallback(() => {
+  useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Update and draw particles
-    particlesRef.current = particlesRef.current.filter((particle) => {
-      particle.x += particle.vx;
-      particle.y += particle.vy;
-      particle.life--;
-
-      // Mouse attraction - optimized distance calculation
-      const dx = mouseRef.current.x - particle.x;
-      const dy = mouseRef.current.y - particle.y;
-      const distanceSquared = dx * dx + dy * dy;
-      
-      if (distanceSquared < 10000) { // 100^2 = 10000
-        const distance = Math.sqrt(distanceSquared);
-        const force = (100 - distance) / 100;
-        particle.vx += (dx / distance) * force * 0.1;
-        particle.vy += (dy / distance) * force * 0.1;
-      }
-
-      // Draw particle
-      const alpha = particle.life / particle.maxLife;
-      ctx.save();
-      ctx.globalAlpha = alpha;
-      ctx.fillStyle = particle.color;
-      ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-
-      return particle.life > 0;
-    });
-
-    // Add new particles with performance limit
-    if (Math.random() < 0.3 && particlesRef.current.length < 200) {
-      particlesRef.current.push(
-        createParticle(
-          Math.random() * canvas.width,
-          Math.random() * canvas.height
-        )
-      );
-    }
-  }, [createParticle]);
-
-  const animate = useCallback(() => {
-    updateParticles();
-    if (isRunning) {
-      animationRef.current = requestAnimationFrame(animate);
-    }
-  }, [updateParticles, isRunning]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-    };
+    return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
   useEffect(() => {
-    if (isRunning) {
-      animate();
-    } else {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    }
+    if (!isActive) return;
+
+    const animate = () => {
+      setParticles((prevParticles) => {
+        const updatedParticles = prevParticles
+          .map((particle) => {
+            // Update position
+            const newX = particle.x + particle.vx;
+            const newY = particle.y + particle.vy;
+
+            // Apply gravity
+            const newVy = particle.vy + 0.1;
+
+            // Apply mouse attraction
+            const dx = mousePos.x - newX;
+            const dy = mousePos.y - newY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100) {
+              const force = (100 - distance) / 100;
+              const newVx = particle.vx + (dx / distance) * force * 0.5;
+              const newVy = particle.vy + (dy / distance) * force * 0.5;
+
+              return {
+                ...particle,
+                x: newX,
+                y: newY,
+                vx: newVx * 0.98,
+                vy: newVy * 0.98,
+                life: particle.life - 1,
+              };
+            }
+
+            return {
+              ...particle,
+              x: newX,
+              y: newY,
+              vy: newVy,
+              vx: particle.vx * 0.98,
+              life: particle.life - 1,
+            };
+          })
+          .filter((particle) => particle.life > 0);
+
+        // Add new particles
+        if (Math.random() < 0.3) {
+          const newParticle: Particle = {
+            id: Date.now() + Math.random(),
+            x:
+              (Math.random() * canvasRef.current!.width) /
+              window.devicePixelRatio,
+            y: canvasRef.current!.height / window.devicePixelRatio,
+            vx: (Math.random() - 0.5) * 4,
+            vy: -Math.random() * 8 - 2,
+            size: Math.random() * 4 + 2,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            life: 200,
+            maxLife: 200,
+          };
+          updatedParticles.push(newParticle);
+        }
+
+        return updatedParticles;
+      });
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [animate, isRunning]);
+  }, [isActive, mousePos]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        const alpha = particle.life / particle.maxLife;
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = particle.color;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+    };
+
+    draw();
+  }, [particles]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    mouseRef.current = {
+    setMousePos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
-    };
+    });
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    // Create explosion
+  const createExplosion = (x: number, y: number) => {
+    const newParticles: Particle[] = [];
     for (let i = 0; i < 20; i++) {
-      particlesRef.current.push(createParticle(x, y));
+      newParticles.push({
+        id: Date.now() + Math.random() + i,
+        x,
+        y,
+        vx: (Math.random() - 0.5) * 10,
+        vy: (Math.random() - 0.5) * 10,
+        size: Math.random() * 6 + 2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        life: 100,
+        maxLife: 100,
+      });
     }
+    setParticles((prev) => [...prev, ...newParticles]);
   };
 
   return (
-    <div className="w-full h-full bg-gray-900 rounded-lg overflow-hidden relative">
+    <div className="w-full h-full relative">
       <canvas
         ref={canvasRef}
-        className="w-full h-full cursor-pointer"
+        className="w-full h-full cursor-crosshair"
         onMouseMove={handleMouseMove}
-        onClick={handleClick}
+        onClick={(e) => {
+          const canvas = canvasRef.current;
+          if (!canvas) return;
+          const rect = canvas.getBoundingClientRect();
+          createExplosion(e.clientX - rect.left, e.clientY - rect.top);
+        }}
       />
-      
-      <div className="absolute top-4 left-4 text-white">
-        <h3 className="text-lg font-semibold mb-2">Particle System</h3>
-        <p className="text-sm text-gray-300 mb-4">
-          Click to create explosions, move mouse to attract particles
-        </p>
-        <button
-          onClick={() => setIsRunning(!isRunning)}
-          className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-700 transition-colors"
+
+      <div className="absolute top-4 left-4 space-y-2">
+        <motion.button
+          className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium"
+          onClick={() => setIsActive(!isActive)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          {isRunning ? "Pause" : "Resume"}
-        </button>
+          {isActive ? "Stop" : "Start"} Particles
+        </motion.button>
+
+        <motion.button
+          className="px-4 py-2 bg-cyan-600 text-white rounded-lg text-sm font-medium block"
+          onClick={() => setParticles([])}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Clear
+        </motion.button>
+      </div>
+
+      <div className="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-3 py-2 rounded-lg">
+        <p>Click to create explosions</p>
+        <p>Move mouse to attract particles</p>
       </div>
     </div>
   );

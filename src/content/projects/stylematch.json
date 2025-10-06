@@ -1,0 +1,46 @@
+{
+  "id": "stylematch",
+  "title": "StyleMatch",
+  "subtitle": "AI Fashion Styling Assistant",
+  "description": "An intelligent fashion styling platform that uses computer vision and machine learning to provide personalized outfit recommendations based on user preferences, body type, and occasion.",
+  "year": "2023",
+  "role": "Full-Stack Developer & ML Engineer",
+  "technologies": [
+    "React",
+    "Python",
+    "OpenCV",
+    "TensorFlow",
+    "FastAPI",
+    "MongoDB",
+    "AWS"
+  ],
+  "category": "Fashion/Tech",
+  "featured": true,
+  "cover": "https://picsum.photos/800/600?random=9",
+  "gallery": [
+    "https://picsum.photos/800/600?random=10",
+    "https://picsum.photos/800/600?random=11",
+    "https://picsum.photos/800/600?random=12"
+  ],
+  "challenge": "Many people struggle with fashion choices and finding outfits that suit their style, body type, and the occasion. Traditional styling services are expensive and not accessible to everyone. There was a need for an AI-powered solution that could provide personalized styling advice.",
+  "solution": "StyleMatch uses computer vision to analyze user photos and clothing items, then applies machine learning algorithms to suggest outfit combinations. The platform learns from user preferences and provides style recommendations for different occasions, weather conditions, and personal style goals.",
+  "results": [
+    "92% accuracy in style matching",
+    "70% increase in user confidence",
+    "50% reduction in shopping time",
+    "85% user retention rate"
+  ],
+  "features": [
+    "AI-powered outfit recommendations",
+    "Virtual wardrobe management",
+    "Style preference learning",
+    "Occasion-based suggestions",
+    "Color coordination analysis",
+    "Body type optimization",
+    "Social sharing features"
+  ],
+  "links": {
+    "live": "https://stylematch.ai",
+    "github": "https://github.com/nimaafsharfar/stylematch"
+  }
+}

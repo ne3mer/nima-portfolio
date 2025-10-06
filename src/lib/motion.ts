@@ -10,7 +10,22 @@ export const fadeInUp = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
+export const fadeInDown = {
+  initial: {
+    opacity: 0,
+    y: -60,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
 };
@@ -25,7 +40,7 @@ export const fadeInLeft = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
 };
@@ -40,17 +55,79 @@ export const fadeInRight = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
+export const scaleIn = {
+  initial: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
 };
 
 export const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
+  animate: {
     transition: {
       staggerChildren: 0.1,
+    },
+  },
+};
+
+export const staggerItem = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
+export const textReveal = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
+export const hoverScale = {
+  hover: {
+    scale: 1.05,
+    transition: {
+      duration: 0.3,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
+export const tapScale = {
+  tap: {
+    scale: 0.95,
+    transition: {
+      duration: 0.1,
     },
   },
 };

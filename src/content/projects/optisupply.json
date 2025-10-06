@@ -1,0 +1,45 @@
+{
+  "id": "optisupply",
+  "title": "OptiSupply",
+  "subtitle": "AI-Powered Supply Chain Optimization",
+  "description": "A comprehensive supply chain management platform that leverages machine learning to predict demand, optimize inventory, and reduce costs across the entire supply network.",
+  "year": "2024",
+  "role": "Full-Stack Developer & AI Engineer",
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Python",
+    "TensorFlow",
+    "Node.js",
+    "PostgreSQL",
+    "Docker"
+  ],
+  "category": "AI/ML",
+  "featured": true,
+  "cover": "https://picsum.photos/800/600?random=1",
+  "gallery": [
+    "https://picsum.photos/800/600?random=2",
+    "https://picsum.photos/800/600?random=3",
+    "https://picsum.photos/800/600?random=4"
+  ],
+  "challenge": "Traditional supply chain management relies on historical data and manual processes, leading to inefficiencies, stockouts, and excess inventory. Companies needed a solution that could predict demand patterns, optimize routes, and automate decision-making.",
+  "solution": "OptiSupply uses advanced machine learning algorithms to analyze historical data, market trends, and external factors to predict demand with 95% accuracy. The platform provides real-time insights and automated recommendations for inventory optimization, supplier selection, and logistics planning.",
+  "results": [
+    "95% accuracy in demand forecasting",
+    "30% reduction in inventory costs",
+    "25% improvement in delivery times",
+    "40% decrease in stockouts"
+  ],
+  "features": [
+    "Real-time demand forecasting",
+    "Automated inventory optimization",
+    "Supplier performance analytics",
+    "Route optimization algorithms",
+    "Risk assessment and mitigation",
+    "Integration with existing ERP systems"
+  ],
+  "links": {
+    "live": "https://optisupply.com",
+    "github": "https://github.com/nimaafsharfar/optisupply"
+  }
+}

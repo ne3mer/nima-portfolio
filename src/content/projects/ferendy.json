@@ -1,0 +1,46 @@
+{
+  "id": "ferendy",
+  "title": "FERENDy",
+  "subtitle": "Social Learning Platform",
+  "description": "A modern social learning platform that connects students, educators, and professionals through interactive courses, peer-to-peer learning, and AI-powered personalized recommendations.",
+  "year": "2023",
+  "role": "Frontend Developer & UX Designer",
+  "technologies": [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Supabase",
+    "Stripe"
+  ],
+  "category": "Education",
+  "featured": true,
+  "cover": "https://picsum.photos/800/600?random=5",
+  "gallery": [
+    "https://picsum.photos/800/600?random=6",
+    "https://picsum.photos/800/600?random=7",
+    "https://picsum.photos/800/600?random=8"
+  ],
+  "challenge": "Traditional online learning platforms lack engagement and personalization. Students often feel isolated and struggle to stay motivated. There was a need for a platform that combines social interaction with personalized learning paths.",
+  "solution": "FERENDy creates a vibrant learning community where users can take courses, participate in study groups, and receive personalized recommendations based on their learning patterns and goals. The platform features gamification elements, peer reviews, and AI-driven content curation.",
+  "results": [
+    "85% user engagement rate",
+    "60% improvement in course completion",
+    "40% increase in peer interactions",
+    "90% user satisfaction score"
+  ],
+  "features": [
+    "Interactive course modules",
+    "Social learning groups",
+    "AI-powered recommendations",
+    "Progress tracking and analytics",
+    "Peer review system",
+    "Mobile-responsive design",
+    "Real-time collaboration tools"
+  ],
+  "links": {
+    "live": "https://ferendy.com",
+    "github": "https://github.com/nimaafsharfar/ferendy"
+  }
+}

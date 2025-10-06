@@ -1,10 +1,10 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 interface TiltCardProps {
   children: React.ReactNode;
   className?: string;
-  intensity?: number; // Max rotation in degrees
+  intensity?: number;
 }
 
 export default function TiltCard({
@@ -42,18 +42,18 @@ export default function TiltCard({
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     mouseX.set(0);
     mouseY.set(0);
+    setIsHovered(false);
   };
 
   return (
     <motion.div
       ref={ref}
-      className={`relative perspective-1000 ${className}`}
+      className={`perspective-1000 ${className}`}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
       style={{
         rotateX,
         rotateY,

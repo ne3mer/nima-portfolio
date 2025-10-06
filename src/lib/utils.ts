@@ -5,12 +5,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(date: Date): string {
+export function formatDate(date: string | Date) {
   return new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
     month: "long",
     day: "numeric",
-  }).format(date);
+    year: "numeric",
+  }).format(new Date(date));
 }
 
 export function debounce<T extends (...args: any[]) => any>(
@@ -36,4 +36,22 @@ export function throttle<T extends (...args: any[]) => any>(
       setTimeout(() => (inThrottle = false), limit);
     }
   };
+}
+
+export function lerp(start: number, end: number, factor: number): number {
+  return start + (end - start) * factor;
+}
+
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
+
+export function mapRange(
+  value: number,
+  inMin: number,
+  inMax: number,
+  outMin: number,
+  outMax: number
+): number {
+  return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
